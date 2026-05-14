@@ -13,7 +13,7 @@ port_scan_buffer = defaultdict(set)
 blacklist_ips = set()
 
 def get_mac_own_ip():
-    """आपके Mac की खुद की लाइव IP एड्रेस का पता लगाता है"""
+    """this for identify your own ip """
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
@@ -48,7 +48,7 @@ def log_blocked_ip_to_file(message):
         pass
 
 def load_existing_blacklist():
-    """लैपटॉप ऑन होते ही पुरानी टेक्स्ट फ़ाइल से ब्लॉक की गई IPs को वापस मेमोरी में लोड करता है"""
+    """your data does not erase after restart"""
     if os.path.exists(LOG_FILE_PATH):
         try:
             with open(LOG_FILE_PATH, "r") as f:
